@@ -1,0 +1,73 @@
+---
+title: "테이블 스키마 - 예산"
+output: html_document
+
+---
+
+```{r}
+rm(list = ls())
+gc()
+```
+
+# 예산
+
+```{}
+세입/수입	세입/수입 예산편성현황(총수입)	          TotalRevenue
+세입/수입	세입/수입 예산편성현황(총액)	            BudgetRevenuesInit
+세입/수입	세입/수입 예산편성현황(외화)	            ForeignRevenueIncomeBudget
+
+세출/지출	세출/지출 세부사업 예산편성현황(총지출)	  TotalExpenditure3
+세출/지출	세출/지출 세부사업 예산편성현황(총액)	    ExpenditureBudgetInit3
+세출/지출	세출/지출 세부사업 예산편성현황(외화)	    ForeignExpenditureBudgget3
+
+세출/지출	세출/지출 세목 예산편성현황(총지출)	      TotalExpenditure4
+세출/지출	세출/지출 세목 예산편성현황(총액)	        ExpenditureBudgetInit4
+세출/지출	세출/지출 세목 예산편성현황(외화)	        ForeignExpenditureBudgget4
+
+세입/수입	세입 예산편성현황(추경포함)	              BudgetRevenuesAdd2
+세출/지출	세출 세부사업 예산편성현황(추경포함)	    ExpenditureBudgetAdd5
+세출/지출	세출 세목 예산편성현황(추경포함)	        ExpenditureBudgetAdd6
+
+세출/지출	정부발주사업정보	                        GovOrdBz1
+```
+
+### 세입/수입
+
+##### BudgetRevenuesInit : 세입/수입 예산편성현황(총액)
+
+```{r}
+BUDGET_REVENUE_INIT <- read_tsv("data/BudgetRevenuesInit.tsv")
+
+BUDGET_REVENUE_INIT %>%
+  filter(FSCL_YY == "2007" & OFFC_NM == "국회") %>%
+  arrange(Y_YY_DFN_MEDI_KCUR_AMT)
+
+```
+
+##### TotalRevenue : 세입/수입 예산편성현황(총수입)
+
+* FSCL_YY	회계연도
+* OFFC_NM	소관명
+* FSCL_NM	회계명
+* ACCT_NM	계정명
+* IKWAN_NM	수입관명
+* IHANG_NM	수입항명
+* IMOK_NM	수입목명
+* Y_YY_MEDI_KCUR_AMT	정부안금액(천원)
+* Y_YY_DFN_MEDI_KCUR_AMT	국회확정금액(천원)
+
+```{r}
+TOTAL_REVENUE <- read_tsv("data/TotalRevenue.tsv")
+
+TOTAL_REVENUE %>%
+  filter(FSCL_YY == "2007" & OFFC_NM == "국회") %>%
+  arrange(Y_YY_DFN_MEDI_KCUR_AMT)
+```
+
+
+
+
+
+
+
+### 세출/지출

@@ -1,0 +1,16 @@
+---
+title: "테이블 스키마 - 결산"
+output: html_document
+---
+
+```{}
+세입/세출	세계잉여금                        AnnualSurplusBudget
+세입/세출	소관별 세입/세출 결산 현황	      DepartRevenExpenSettle
+세입/세출	세입/수입 결산 현황	              RevenuesSettled
+세입/세출	세출/지출 결산 현황	              ExpendituresSettlement
+세입/세출	회계별 세입/세출 결산 현황	      FiacalRevenExpenSettle
+세입/세출	회계별 세입 결산 현황	            FiscalRevenSettle
+세입/세출	회계별 세출 결산 현황	            FiscalExpenSettle
+세입/세출	기금별 수입/지출 결산 현황	      ClosingFundRevenuesExpenses
+```
+
